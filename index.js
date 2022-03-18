@@ -10,9 +10,14 @@ const  retornaUsuario  = require('./controller/retornaUsuario')
 
 const app = express();
 app.use(bodyParser.json())
-const PORT = process.env.PORT || 3000;
 
-app.use(cors());
+const PORT = process.env.PORT || 3100;
+
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*' )
+    app.use(cors());
+    next();
+})
 
 app.post('/registro', validaEmail, validaSenha, validaUsuario, criaUsuario );
 
