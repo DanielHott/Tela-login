@@ -6,7 +6,7 @@ const retornaUsuario = async (req, res) => {
      return res.status(201).json( usuarioAtual )
   } catch (error) {
     console.log(error);
-    return res.status(500).json({ message: 'Criação de usuário falhou' });
+    return res.status(500).json({ message: 'Criação de usuário falhou!' });
   }
 };
 
